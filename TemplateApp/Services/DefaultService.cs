@@ -21,7 +21,7 @@ public class DefaultService : IDefaultService
     {
         return new List<DefaultEntityDTO>()
         {
-            new DefaultEntityDTO("test1"), new DefaultEntityDTO("test2"), new DefaultEntityDTO("test3")
+            new ("test1"), new ("test2"), new ("test3")
         }; 
     }
 }

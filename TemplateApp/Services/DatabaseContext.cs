@@ -24,19 +24,12 @@ public class DatabaseContext : DbContext
         defaultEntities.HasKey(x => x.Name);
     }
     
-    /// <summary>
-    ///     Dispose pattern.
-    /// </summary>
     public override void Dispose()
     {
         Debug.WriteLine($"{ContextId} context disposed.");
         base.Dispose();
     }
 
-    /// <summary>
-    ///     Dispose pattern.
-    /// </summary>
-    /// <returns>A <see cref="ValueTask" /></returns>
     public override ValueTask DisposeAsync()
     {
         Debug.WriteLine($"{ContextId} context disposed async.");
