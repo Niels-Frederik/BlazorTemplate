@@ -1,0 +1,25 @@
+﻿@page "/default"
+<PageTitle>Default</PageTitle>
+@using TemplateApp.Data
+@using TemplateApp.Entities
+@inject DefaultService DefaultService 
+
+<MudTable Items="data" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Primary">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private List<DefaultEntity> data;
+    bool _loading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await DefaultService.GetDataAsync();
+        _loading = false;
+    }
+}
