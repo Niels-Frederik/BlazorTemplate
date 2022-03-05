@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TemplateApp.Entities;
 using TemplateApp.Models;
 
@@ -10,13 +11,17 @@ public interface IDefaultService
 
 public class DefaultService : IDefaultService
 {
-    private List<DefaultEntityDTO> data = new()
-    {
-        new DefaultEntityDTO("test1"), new DefaultEntityDTO("test2"), new DefaultEntityDTO("test3")
-    };
-
+    private readonly IDbContextFactory<DatabaseContext> _dbFactory;
+    public DefaultService(IDbContextFactory<DatabaseContext> dbFactory) 
+    { 
+        _dbFactory = dbFactory;
+    }
+    
     public async Task<List<DefaultEntityDTO>> GetDataAsync()
     {
-        return data;
+        return new List<DefaultEntityDTO>()
+        {
+            new DefaultEntityDTO("test1"), new DefaultEntityDTO("test2"), new DefaultEntityDTO("test3")
+        }; 
     }
 }
