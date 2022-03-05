@@ -1,15 +1,21 @@
 using TemplateApp.Entities;
+using TemplateApp.Models;
 
 namespace TemplateApp.Data;
 
-public class DefaultService
+public interface IDefaultService
 {
-    private List<DefaultEntity> data = new()
+    public Task<List<DefaultEntityDTO>> GetDataAsync();
+}
+
+public class DefaultService : IDefaultService
+{
+    private List<DefaultEntityDTO> data = new()
     {
-        new DefaultEntity(){Name = "test1"}, new DefaultEntity(){Name = "test2"}, new DefaultEntity(){Name = "test3"}
+        new DefaultEntityDTO("test1"), new DefaultEntityDTO("test2"), new DefaultEntityDTO("test3")
     };
 
-    public async Task<List<DefaultEntity>> GetDataAsync()
+    public async Task<List<DefaultEntityDTO>> GetDataAsync()
     {
         return data;
     }
