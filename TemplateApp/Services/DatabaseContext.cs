@@ -1,10 +1,6 @@
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using TemplateApp.Entities;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace TemplateApp.Data;
 

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using TemplateApp.Entities;
 using TemplateApp.Models;
 
 namespace TemplateApp.Data;
