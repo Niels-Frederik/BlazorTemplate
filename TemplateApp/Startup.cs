@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
-using TemplateApp.Data;
+using TemplateApp.Services;
 
 namespace TemplateApp;
 
@@ -26,6 +27,7 @@ public class Startup
         {
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
         });
+        services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<DbContext>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DatabaseContext dbContext)

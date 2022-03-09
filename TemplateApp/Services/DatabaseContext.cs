@@ -1,10 +1,11 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TemplateApp.Entities;
 
-namespace TemplateApp.Data;
+namespace TemplateApp.Services;
 
-public class DatabaseContext : DbContext
+public class DatabaseContext : IdentityDbContext
 {
     public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {

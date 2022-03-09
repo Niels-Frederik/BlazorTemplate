@@ -1,9 +1,8 @@
 ﻿@page "/default"
 <PageTitle>Default</PageTitle>
-@using TemplateApp.Data
-@using TemplateApp.Entities
 @using TemplateApp.Models
 @using System.Globalization
+@using TemplateApp.Services
 @inject IDefaultService DefaultService 
 
 <MudTable Items="data" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Primary">

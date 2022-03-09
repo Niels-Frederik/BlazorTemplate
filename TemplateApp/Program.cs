@@ -2,7 +2,6 @@ using System.Reflection;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
-using TemplateApp.Data;
 using MudBlazor.Services;
 using TemplateApp;
 

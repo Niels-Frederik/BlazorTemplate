@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TemplateApp.Models;
+using TemplateApp.Services;
 
-namespace TemplateApp.Data;
+namespace TemplateApp.Services;
 
 public interface IDefaultService
 {
