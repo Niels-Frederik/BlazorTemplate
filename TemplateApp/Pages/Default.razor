@@ -5,17 +5,25 @@
 @using TemplateApp.Services
 @inject IDefaultService DefaultService 
 
-<MudTable Items="data" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Primary">
-    <HeaderContent>
-        <MudTh>Name</MudTh>
-        <MudTh>Date</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        <MudTd DataLabel="Date">@context.Date.ToString(CultureInfo.InvariantCulture)</MudTd>
-    </RowTemplate>
-</MudTable>
-<br/>
+
+<AuthorizeView>
+    <Authorized>
+        <MudTable Items="data" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Primary">
+            <HeaderContent>
+                <MudTh>Name</MudTh>
+                <MudTh>Date</MudTh>
+            </HeaderContent>
+            <RowTemplate Context="defaultEntityDto">
+                <MudTd DataLabel="Name">defaultEntityDto.Name</MudTd>
+                <MudTd DataLabel="Date">@defaultEntityDto.Date.ToString(CultureInfo.InvariantCulture)</MudTd>
+            </RowTemplate>
+        </MudTable>
+        <br/>
+    </Authorized>
+    <NotAuthorized>
+        <MudText>You are not allowed</MudText>
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
     private List<DefaultEntityDTO> data;
